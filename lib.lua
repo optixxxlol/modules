@@ -4026,5 +4026,5 @@ function library:CreateSettingsTab(menu)
 end
 
 getgenv().library = library
-library:init()
+
 return library
