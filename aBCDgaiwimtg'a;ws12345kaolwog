@@ -139,9 +139,6 @@ function esp:init()
             boxfill = newDrawing('Square', {Thickness = 1, Transparency = .5, Filled = true});
             boxoutline = newDrawing('Square', {Thickness = 3});
             box = newDrawing('Square', {Thickness = 1});
-            tracer = newDrawing('Line', {Thickness = 1});
-            angle = newDrawing('Line', {Thickness = 1});
-            arrow = newDrawing('Triangle', {Filled = true, ZIndex = 3, Transparency = .75});
             chams = newInst('Highlight', {Parent = workspace, DepthMode = Enum.HighlightDepthMode.AlwaysOnTop});
             text = {};
             bar = {};
@@ -293,23 +290,6 @@ function esp:init()
                                 data.boxfill.Transparency = data.boxfill.Transparency > esp.boxfill[3] and esp.boxfill[3] or data.boxfill.Transparency;
                             end
                         end
-
-                        data.tracer.Visible = esp.tracer[1];
-                        if esp.tracer[1] then
-                            data.tracer.Color = targetColor or esp.tracer[2];
-                            data.tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y);
-                            data.tracer.To = bottom;
-                        end
-
-                        data.angle.Visible = esp.angle[1];
-                        if esp.angle[1] then
-                            local from = camera:WorldToViewportPoint(char.Head.CFrame.p);
-                            local to = camera:WorldToViewportPoint((char.Head.CFrame + (char.Head.CFrame.lookVector * 10)).p);
-                            data.angle.Color = targetColor or esp.angle[2];
-                            data.angle.From = Vector2.new(from.X, from.Y);
-                            data.angle.To = Vector2.new(to.X, to.Y);
-                        end
-
                         for flag, barData in next, data.bar do
                             local espBarData = esp.barlayout[flag];
                             local barInfo = barInfo[flag];
