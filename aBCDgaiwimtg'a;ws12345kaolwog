@@ -278,7 +278,7 @@ function esp:init()
                         if esp.box[1] then
                             data.box.Size = size;
                             data.box.Position = pos;
-                            data.box.Color = client.target == plr and library.flags.highlighttarget and Color3.fromRGB(255,255,255) or esp.box[2];
+                            data.box.Color = esp.box[2];
                             
                             if esp.outline[1] then
                                 data.boxoutline.Position = pos;
@@ -367,7 +367,7 @@ function esp:init()
                                 obj.Text = (textInfo[flag].text or flag)..(espTextData.suffix or '');
                                 obj.Size = esp.textsize;
                                 obj.Font = esp.textfont;
-                                obj.Color = textInfo[flag].color or client.target == plr and library.flags.highlighttarget and Color3.fromRGB(255,255,255) or espTextData.color;
+                                obj.Color = textInfo[flag].color or espTextData.color;
                                 obj.Outline = esp.outline[1];
                                 obj.OutlineColor = esp.outline[2];
                                 obj.Center = (textPos == 'top' or textPos == 'bottom') and true or false;
