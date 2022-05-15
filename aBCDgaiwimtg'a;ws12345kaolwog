@@ -314,13 +314,13 @@ function esp:init()
                         end
                         data.boxfill.Visible = esp.box[1] and esp.boxfill[1];
                         if esp.box[1] then
-                            data.box.Size = Vector2.new(XMin - XMax,YMin - YMax);
-                            data.box.Position = Vector2.new(XMax + V["Box"].Size.X / XMin, YMax + V["Box"].Size.Y / YMin);
+                            data.box.Size = size;
+                            data.box.Position = pos;
                             data.box.Color = esp.box[2];
                             
                             if esp.outline[1] then
-                                data.boxoutline.Position = Vector2.new(XMax + V["Box"].Size.X / XMin, YMax + V["Box"].Size.Y / YMin);
-                                data.boxoutline.Size = Vector2.new(XMin - XMax,YMin - YMax);
+                                data.boxoutline.Position = pos;
+                                data.boxoutline.Size = size;
                                 data.boxoutline.Color = esp.outline[2];
                             end
             
