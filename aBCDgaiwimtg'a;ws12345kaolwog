@@ -184,22 +184,6 @@ function esp:init()
             esp.new(v);
         end
     end
-    
-    local function SizeVecs(Part)
-        local Size = Part.Size
-        
-        return {
-            TBRC = Part.CFrame * CFrame.new(Size.X,Size.Y * 1.3,Size.Z),
-            TBLC = Part.CFrame * CFrame.new(-Size.X,Size.Y * 1.3,Size.Z),
-            TFRC = Part.CFrame * CFrame.new(Size.X,Size.Y * 1.3,-Size.Z),
-            TFLC = Part.CFrame * CFrame.new(-Size.X,Size.Y * 1.3,-Size.Z ),
-            
-            BBRC = Part.CFrame * CFrame.new(Size.X,-Size.Y * 1.6,Size.Z),
-            BBLC = Part.CFrame * CFrame.new(-Size.X,-Size.Y * 1.6,Size.Z),
-            BFRC = Part.CFrame * CFrame.new(Size.X,-Size.Y * 1.6,-Size.Z),
-            BFLC = Part.CFrame * CFrame.new(-Size.X,-Size.Y * 1.6,-Size.Z),
-        }
-    end
 
     table.insert(connections, players.PlayerAdded:Connect(esp.new));
     table.insert(connections, players.PlayerRemoving:Connect(esp.remove));
@@ -267,31 +251,6 @@ function esp:init()
                         local size = Vector2.new(math.floor(size * 1.35), math.floor(size * 2.15));
                         local pos = Vector2.new(math.floor(screenPos.X), math.floor(screenPos.Y)) - Vector2.new(math.floor(size.X/2), math.floor(size.Y/2));
                         local bottom = Vector2.new(pos.X + size.X / 2, pos.Y + size.Y);
-                        local Camera = workspace.CurrentCamera
-                        local GrabDeminsons = SizeVecs(HRP)
-                        local YMin,YMax = Camera.ViewportSize.X,0 
-                        local XMin,XMax = Camera.ViewportSize.X,0 
-                        
-                        for _,V in pairs(GrabDeminsons) do 
-                            
-                            local Vec = Camera:WorldToViewportPoint(V.Position)
-                            
-                            if Vec.X < XMin then 
-                                XMin = Vec.X 
-                            end 
-                            
-                            if Vec.X > XMax then 
-                                XMax = Vec.X 
-                            end 
-                            
-                            if Vec.Y < YMin then 
-                                YMin = Vec.Y 
-                            end 
-                            
-                            if Vec.Y > YMax then 
-                                YMax = Vec.Y 
-                            end 
-                        end 
                         
                         local bottom = Vector2.new(pos.X+size.X/2, pos.Y+size.Y);
                         
