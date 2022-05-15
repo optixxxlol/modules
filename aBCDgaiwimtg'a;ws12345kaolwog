@@ -201,7 +201,7 @@ function esp:init()
                     if pass then
                         char = esp.GetPlayerCharacter(plr);
                         HRP = char.PrimaryPart;
-                        screenPos, onScreen = camera:WorldToViewportPoint((HRP.CFrame * (char:GetBoundingBox().Position):ToObjectSpace(camera.CFrame - camera.CFrame.p)).p);
+                        screenPos, onScreen = camera:WorldToViewportPoint((HRP.CFrame * (HRP.CFrame.p - char:GetBoundingBox().Position):ToObjectSpace(camera.CFrame - camera.CFrame.p)).p);
                     end
             
                     local function setPropAll(prop, value)
