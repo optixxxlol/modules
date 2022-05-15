@@ -274,7 +274,7 @@ function esp:init()
                         
                         for _,V in pairs(GrabDeminsons) do 
                             
-                            local Vec = Cam:WorldToViewportPoint(V.Position)
+                            local Vec = Camera:WorldToViewportPoint(V.Position)
                             
                             if Vec.X < XMin then 
                                 XMin = Vec.X 
