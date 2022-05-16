@@ -2761,7 +2761,6 @@ for _, obj in next, library.theme do
     obj[(obj.ClassName == "TextLabel" and "TextColor3") or (obj.ClassName == "ImageLabel" and "ImageColor3") or "BackgroundColor3"] = Color
 end
 end})
-library.SettingsMenu:AddToggle({text = 'Watermark', flag = 'Watermark'})
 local Backgrounds = {
 ['Nothing'] = 0,
 ['Ars'] = 7857376718,
