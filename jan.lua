@@ -10,7 +10,7 @@ if getgenv().library then
 getgenv().library:Unload()
 end
 
-local library = {tabs = {}, draggable = true, flags = {}, title = 'funnny crimmm lol', open = false, mousestate = true, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = 'flux_configs', fileext = '.fx'}
+local library = {tabs = {}, draggable = true, flags = {}, title = 'funnny crimmm scrip lol', open = false, mousestate = true, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = 'flux_configs', fileext = '.fx'}
 getgenv().library = library
 
 --Locals
@@ -2533,7 +2533,7 @@ end
 self.main = self:Create("ImageButton", {
     AutoButtonColor = false,
     Position = UDim2.new(0, 100, 0, 46),
-    Size = UDim2.new(0, 500, 0, 600),
+    Size = UDim2.new(0, 525, 0, 650),
     BackgroundColor3 = Color3.fromRGB(20, 20, 20),
     BorderColor3 = Color3.new(),
     ScaleType = Enum.ScaleType.Tile,
@@ -2753,7 +2753,7 @@ end})
 
 library.SettingsMenu = library.SettingsColumn:AddSection"Menu"
 library.SettingsMenu:AddBind({text = "Open / Close", flag = "UI Toggle", nomouse = true, key = "Delete", callback = function() library:Close() end})
-library.SettingsMenu:AddColor({text = "Accent Color", flag = "Menu Accent Color", color = Color3.fromRGB(76, 237, 216), callback = function(Color)
+library.SettingsMenu:AddColor({text = "Accent Color", flag = "Menu Accent Color", color = Color3.fromRGB(255,84,167), callback = function(Color)
 if library.currentTab then
     library.currentTab.button.TextColor3 = Color
 end
