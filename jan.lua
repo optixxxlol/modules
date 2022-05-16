@@ -2741,7 +2741,7 @@ if not getgenv().silent then
 end
 end
 
-library.SettingsTab = library:AddTab("Settings")
+library.SettingsTab = library:AddTab("Settings", 100)
 library.SettingsColumn = library.SettingsTab:AddColumn()
 library.SettingsColumn1 = library.SettingsTab:AddColumn()
 
