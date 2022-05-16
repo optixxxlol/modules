@@ -10,7 +10,7 @@ if getgenv().library then
 getgenv().library:Unload()
 end
 
-local library = {tabs = {}, draggable = true, flags = {}, title = 'flux', open = false, mousestate = true, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = 'flux_configs', fileext = '.fx'}
+local library = {tabs = {}, draggable = true, flags = {}, title = 'funnny crimmm lol', open = false, mousestate = true, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = 'flux_configs', fileext = '.fx'}
 getgenv().library = library
 
 --Locals
@@ -87,6 +87,8 @@ for _, o in next, self.options do
 end
 library = nil
 getgenv().library = nil
+self.cursor:Remove()
+self.cursor1:Remove()
 end
 
 function library:LoadConfig(config)
