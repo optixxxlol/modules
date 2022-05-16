@@ -2820,3 +2820,4 @@ library.CreditSection = library.SettingsColumn1:AddSection('Credits');
 library.CreditSection:AddLabel('Portal#4849 ~ dev');
 library.CreditSection:AddLabel('liam#4567 ~ my bitch');
 library.CreditSection:AddLabel('tested#0021 ~ my bitch');
+library:Init()
