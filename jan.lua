@@ -10,7 +10,7 @@ if getgenv().library then
 getgenv().library:Unload()
 end
 
-local library = {tabs = {}, draggable = true, flags = {}, title = 'ametrine', open = false, mousestate = true, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = 'ars_configs', fileext = '.ars'}
+local library = {tabs = {}, draggable = true, flags = {}, title = 'goal kick script lol', open = false, mousestate = true, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = 'gks_configs', fileext = '.gks'}
 getgenv().library = library
 
 --Locals
