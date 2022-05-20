@@ -10,7 +10,7 @@ if getgenv().library then
 getgenv().library:Unload()
 end
 
-local library = {tabs = {}, draggable = true, flags = {}, title = 'funnny crimmm scrip lol', open = false, mousestate = true, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = 'flux_configs', fileext = '.fx'}
+local library = {tabs = {}, draggable = true, flags = {}, title = 'ametrine', open = false, mousestate = true, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = 'ars_configs', fileext = '.ars'}
 getgenv().library = library
 
 --Locals
@@ -43,6 +43,26 @@ while library and task.wait() do
     chromaColor = Color3.fromHSV(tick() % 6 / 6, 1, 1)
 end
 end)
+
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local function AddDrawing(Type, Properties)
+    local Drawing = Drawing.new(Type)
+    for Property, Value in pairs(Properties) do
+        Drawing[Property] = Value
+    end
+    return Drawing
+end
+
+local Cursor = AddDrawing("Triangle", {
+    Color = Color3.new(1,1,1),
+    Filled = true,
+    Thickness = 1,
+    Transparency = .7,
+    Visible = true,
+    ZIndex = 2
+})
 
 function library:Create(class, properties)
 properties = properties or {}
@@ -85,10 +105,9 @@ for _, o in next, self.options do
         coroutine.resume(coroutine.create(o.SetState, o))
     end
 end
+Cursor.Visible = false
 library = nil
 getgenv().library = nil
-self.cursor:Remove()
-self.cursor1:Remove()
 end
 
 function library:LoadConfig(config)
@@ -463,27 +482,6 @@ option.title = library:Create("TextLabel", {
     Parent = option.main
 })
 
-library:Create("ImageLabel", {
-    Size = UDim2.new(1, 0, 1, 0),
-    BackgroundTransparency = 1,
-    Image = "rbxassetid://2592362371",
-    ImageColor3 = Color3.fromRGB(60, 60, 60),
-    ScaleType = Enum.ScaleType.Slice,
-    SliceCenter = Rect.new(2, 2, 62, 62),
-    Parent = option.title
-})
-
-library:Create("ImageLabel", {
-    Size = UDim2.new(1, -2, 1, -2),
-    Position = UDim2.new(0, 1, 0, 1),
-    BackgroundTransparency = 1,
-    Image = "rbxassetid://2592362371",
-    ImageColor3 = Color3.new(),
-    ScaleType = Enum.ScaleType.Slice,
-    SliceCenter = Rect.new(2, 2, 62, 62),
-    Parent = option.title
-})
-
 library:Create("UIGradient", {
     Color = ColorSequence.new({
         ColorSequenceKeypoint.new(0, Color3.fromRGB(180, 180, 180)),
@@ -686,27 +684,6 @@ option.fill = library:Create("Frame", {
     Parent = option.slider
 })
 
-library:Create("ImageLabel", {
-    Size = UDim2.new(1, 0, 1, 0),
-    BackgroundTransparency = 1,
-    Image = "rbxassetid://2592362371",
-    ImageColor3 = Color3.fromRGB(60, 60, 60),
-    ScaleType = Enum.ScaleType.Slice,
-    SliceCenter = Rect.new(2, 2, 62, 62),
-    Parent = option.slider
-})
-
-library:Create("ImageLabel", {
-    Size = UDim2.new(1, -2, 1, -2),
-    Position = UDim2.new(0, 1, 0, 1),
-    BackgroundTransparency = 1,
-    Image = "rbxassetid://2592362371",
-    ImageColor3 = Color3.new(),
-    ScaleType = Enum.ScaleType.Slice,
-    SliceCenter = Rect.new(2, 2, 62, 62),
-    Parent = option.slider
-})
-
 option.title = library:Create("TextBox", {
     Position = UDim2.new((option.sub or option.textpos) and 0.5 or 0, (option.sub or option.textpos) and 0 or 6, 0, 0),
     Size = UDim2.new(0, 0, 0, (option.sub or option.textpos) and 14 or 18),
@@ -884,26 +861,6 @@ library:Create("ImageLabel", {
     Parent = option.listvalue
 })
 
-library:Create("ImageLabel", {
-    Size = UDim2.new(1, 0, 1, 0),
-    BackgroundTransparency = 1,
-    Image = "rbxassetid://2592362371",
-    ImageColor3 = Color3.fromRGB(60, 60, 60),
-    ScaleType = Enum.ScaleType.Slice,
-    SliceCenter = Rect.new(2, 2, 62, 62),
-    Parent = option.listvalue
-})
-
-library:Create("ImageLabel", {
-    Size = UDim2.new(1, -2, 1, -2),
-    Position = UDim2.new(0, 1, 0, 1),
-    BackgroundTransparency = 1,
-    Image = "rbxassetid://2592362371",
-    ImageColor3 = Color3.new(),
-    ScaleType = Enum.ScaleType.Slice,
-    SliceCenter = Rect.new(2, 2, 62, 62),
-    Parent = option.listvalue
-})
 
 option.arrow = library:Create("ImageLabel", {
     Position = UDim2.new(1, -16, 0, 7),
@@ -1208,26 +1165,6 @@ library:Create("ImageLabel", {
     Parent = option.holder
 })
 
-library:Create("ImageLabel", {
-    Size = UDim2.new(1, 0, 1, 0),
-    BackgroundTransparency = 1,
-    Image = "rbxassetid://2592362371",
-    ImageColor3 = Color3.fromRGB(60, 60, 60),
-    ScaleType = Enum.ScaleType.Slice,
-    SliceCenter = Rect.new(2, 2, 62, 62),
-    Parent = option.holder
-})
-
-library:Create("ImageLabel", {
-    Size = UDim2.new(1, -2, 1, -2),
-    Position = UDim2.new(0, 1, 0, 1),
-    BackgroundTransparency = 1,
-    Image = "rbxassetid://2592362371",
-    ImageColor3 = Color3.new(),
-    ScaleType = Enum.ScaleType.Slice,
-    SliceCenter = Rect.new(2, 2, 62, 62),
-    Parent = option.holder
-})
 
 local inputvalue = library:Create("TextBox", {
     Position = UDim2.new(0, 4, 0, 0),
@@ -2505,16 +2442,16 @@ function library:Close()
 self.open = not self.open
 if self.open then
     inputService.MouseIconEnabled = false
+    Cursor.Visible = true
 else
     inputService.MouseIconEnabled = self.mousestate
+    Cursor.Visible = false
 end
 if self.main then
     if self.popup then
         self.popup:Close()
     end
     self.main.Visible = self.open
-    self.cursor.Visible  = self.open
-    self.cursor1.Visible  = self.open
 end
 end
 
@@ -2533,7 +2470,7 @@ end
 self.main = self:Create("ImageButton", {
     AutoButtonColor = false,
     Position = UDim2.new(0, 100, 0, 46),
-    Size = UDim2.new(0, 525, 0, 650),
+    Size = UDim2.new(0, 500, 0, 600),
     BackgroundColor3 = Color3.fromRGB(20, 20, 20),
     BorderColor3 = Color3.new(),
     ScaleType = Enum.ScaleType.Tile,
@@ -2547,6 +2484,15 @@ self.top = self:Create("Frame", {
     BackgroundColor3 = Color3.fromRGB(30, 30, 30),
     BorderColor3 = Color3.new(),
     Parent = self.main
+})
+
+library:Create("UIGradient", {
+    Color = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(180, 180, 180)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(253, 253, 253)),
+    }),
+    Rotation = -90,
+    Parent = self.top
 })
 
 self:Create("TextLabel", {
@@ -2590,15 +2536,6 @@ self.columnHolder = self:Create("Frame", {
     Size = UDim2.new(1, -10, 1, -60),
     BackgroundTransparency = 1,
     Parent = self.main
-})
-
-self.cursor = self:Create("Triangle", {
-    Color = Color3.fromRGB(180, 180, 180),
-    Transparency = 0.6,
-})
-self.cursor1 = self:Create("Triangle", {
-    Color = Color3.fromRGB(240, 240, 240),
-    Transparency = 0.6,
 })
 
 self.tooltip = self:Create("TextLabel", {
@@ -2715,16 +2652,6 @@ self:AddConnection(inputService.InputChanged, function(input)
     if not self.open then return end
     
     if input.UserInputType.Name == "MouseMovement" then
-        if self.cursor then
-            local mouse = inputService:GetMouseLocation()
-            local MousePos = Vector2.new(mouse.X, mouse.Y)
-            self.cursor.PointA = MousePos
-            self.cursor.PointB = MousePos + Vector2.new(12, 12)
-            self.cursor.PointC = MousePos + Vector2.new(12, 12)
-            self.cursor1.PointA = MousePos
-            self.cursor1.PointB = MousePos + Vector2.new(11, 11)
-            self.cursor1.PointC = MousePos + Vector2.new(11, 11)
-        end
         if self.slider then
             self.slider:SetValue(self.slider.min + ((input.Position.X - self.slider.slider.AbsolutePosition.X) / self.slider.slider.AbsoluteSize.X) * (self.slider.max - self.slider.min))
         end
@@ -2741,19 +2668,40 @@ if not getgenv().silent then
 end
 end
 
-library.SettingsTab = library:AddTab("Settings", 100)
+RunService.RenderStepped:Connect(function()
+    local Mouse = UserInputService:GetMouseLocation()
+        Cursor.PointA = Mouse
+        Cursor.PointB = Mouse + Vector2.new(16,5)
+        Cursor.PointC = Mouse + Vector2.new(5,16)
+end)
+
+library:Init()
+
 library.SettingsColumn = library.SettingsTab:AddColumn()
 library.SettingsColumn1 = library.SettingsTab:AddColumn()
-
-library.SettingsMain = library.SettingsColumn:AddSection"Main"
-library.SettingsMain:AddButton({text = "Unload Cheat", callback = function()
-library:Unload()
-getgenv().library = nil
-end})
-
+library.ConfigSection = library.SettingsColumn:AddSection"Configuration"
 library.SettingsMenu = library.SettingsColumn:AddSection"Menu"
+library.Universal = library.SettingsColumn1:AddSection"Game Settings"
+library.Universal:AddToggle({text = "Anti AFK", flag = 'antiafk', callback = function(v)
+    if v then
+        repeat wait() until game:GetService("Players").LocalPlayer
+        for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+            v:Disable()
+        end
+    else
+        for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+            v:Enable()
+        end
+    end
+end})
+library.Universal:AddButton({text = "Copy JobID", callback = function() setclipboard('Roblox.GameLauncher.joinGameInstance('..game.PlaceId..',"'..game.JobId..'")') end})
+library.Universal:AddButton({text = "Rejoin Server", callback = function()
+game:GetService("Players").LocalPlayer:Kick("\nRejoining...")
+wait()
+game:GetService('TeleportService'):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end})
 library.SettingsMenu:AddBind({text = "Open / Close", flag = "UI Toggle", nomouse = true, key = "Delete", callback = function() library:Close() end})
-library.SettingsMenu:AddColor({text = "Accent Color", flag = "Menu Accent Color", color = Color3.fromRGB(255,84,167), callback = function(Color)
+library.SettingsMenu:AddColor({text = "Accent Color", flag = "Menu Accent Color", color = Color3.fromRGB(255, 65, 65), callback = function(Color)
 if library.currentTab then
     library.currentTab.button.TextColor3 = Color
 end
@@ -2761,28 +2709,6 @@ for _, obj in next, library.theme do
     obj[(obj.ClassName == "TextLabel" and "TextColor3") or (obj.ClassName == "ImageLabel" and "ImageColor3") or "BackgroundColor3"] = Color
 end
 end})
-local Backgrounds = {
-['Nothing'] = 0,
-['Ars'] = 7857376718,
-['Floral'] = 5553946656,
-['Flowers'] = 6071575925,
-['Circles'] = 6071579801,
-['Hearts'] = 6073763717
-}
-library.SettingsMenu:AddList({text = 'Background', flag = 'UI Background', values = {'Nothing', 'Floral', 'Flowers', 'Circles', 'Hearts'}, callback = function(Value)
-if Backgrounds[Value] then
-    library.main.Image = 'rbxassetid://' .. Backgrounds[Value]
-end
-end}):AddColor({flag = 'Menu Background Color', color = Color3.new(), callback = function(Color)
-library.main.ImageColor3 = Color
-end, trans = 1, calltrans = function(Value)
-library.main.ImageTransparency = 1 - Value
-end})
-library.SettingsMenu:AddSlider({text = 'Tile Size', value = 90, min = 1, max = 500, callback = function(Value)
-library.main.TileSize = UDim2.new(0, Value, 0, Value)
-end})
-
-library.ConfigSection = library.SettingsColumn1:AddSection"Configs"
 library.ConfigSection:AddBox({text = "Config Name", skipflag = true})
 library.ConfigSection:AddButton({text = "Create", callback = function()
 library:GetConfigs()
@@ -2790,7 +2716,7 @@ writefile(library.foldername .. "/" .. library.flags["Config Name"] .. library.f
 library.options["Config List"]:AddValue(library.flags["Config Name"])
 end})
 library.ConfigWarning = library:AddWarning({type = "confirm"})
-library.ConfigSection:AddList({text = "Configs", skipflag = true, value = "", flag = "Config List", values = library:GetConfigs()})
+library.ConfigSection:AddList({text = "Config Selected", skipflag = true, value = "", flag = "Config List", values = library:GetConfigs()})
 library.ConfigSection:AddButton({text = "Save", callback = function()
 local r, g, b = library.round(library.flags["Menu Accent Color"])
 library.ConfigWarning.text = "Are you sure you want to save the current settings to config <font color='rgb(" .. r .. "," .. g .. "," .. b .. ")'>" .. library.flags["Config List"] .. "</font>?"
@@ -2816,9 +2742,3 @@ if library.ConfigWarning:Show() then
     end
 end
 end})
--- Credits
-library.CreditSection = library.SettingsColumn1:AddSection('Credits');
-library.CreditSection:AddLabel('Portal#4849 ~ dev');
-library.CreditSection:AddLabel('liam#4567 ~ my bitch');
-library.CreditSection:AddLabel('tested#0021 ~ my bitch');
-library:Init()
