@@ -1134,29 +1134,6 @@ function library:Close()
         self.cursoroutline.Visible = self.open
     end
 end
-services.ContextActionService:UnbindAction("disablekeyboard")
-services.ContextActionService:UnbindAction("disablemousescroll")
-function library:Unload()
-if self.open then
-    library:Close()
-end
-
-if self.holder then
-    self.holder:Remove()
-end
-
-if self.cursor then
-    self.cursor:Remove()
-end
-
-for _, connection in next, self.connections do
-    connection:Disconnect()
-end
-
-table.clear(self.connections)
-table.clear(self.flags)
-table.clear(flags)
-end
 
 -- // Library
 -- // CREATE
