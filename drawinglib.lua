@@ -1136,7 +1136,7 @@ function library:Close()
 end
 services.ContextActionService:UnbindAction("disablekeyboard")
 services.ContextActionService:UnbindAction("disablemousescroll")
-
+function library:Unload()
 if self.open then
     library:Close()
 end
