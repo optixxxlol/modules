@@ -2840,3 +2840,4 @@ table.clear(self.connections)
 table.clear(self.flags)
 table.clear(flags)
 end
+return library
