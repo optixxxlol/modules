@@ -13,7 +13,7 @@ local library = {
     ended = {},
     changed = {},
     folders = {
-        main = "stellar"
+        main = "stellar",
         assets = "stellar/assets",
         configs = "stellar/configs"
     }
