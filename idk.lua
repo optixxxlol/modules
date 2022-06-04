@@ -19,17 +19,7 @@ local library = {
     }
 }
 --
-if not isfolder(library.folders.main) then
-    makefolder(library.folders.main)
-end
---
-if not isfolder(library.folders.assets) then
-    makefolder(library.folders.assets)
-end
---
-if not isfolder(library.folders.configs) then
-    makefolder(library.folders.configs)
-end
+
 --
 local allowedCharacters = {
     "A",
