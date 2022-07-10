@@ -255,7 +255,7 @@ library.themes = {
     }
 }
 
-library.signal = loadstring(game:HttpGetAsync('https://octohook.xyz/module/SD7rGwJqF3DvQpiE0dOQHYmEfaygf2VkxrTbQmZO7P6uVBRfJF.signal.lua'))();
+library.signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/Quenty/NevermoreEngine/23c4c96158a582b30f13d58ebb8b9f8139aca130/src/signal/src/Shared/Signal.lua"))()
 
 local blacklistedKeys = {
 	Enum.KeyCode.Unknown,
